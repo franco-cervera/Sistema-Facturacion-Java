@@ -225,6 +225,7 @@ public class clientes {
         });
     }
     private void limpiar() {
+        idclientes.setText("");
         nombre.setText("");
         apellido.setText("");
         cuitcuil.setText("");

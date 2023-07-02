@@ -25,8 +25,8 @@ public class proveedores {
     private JButton facturarButton;
     private JButton stockButton;
     private JButton clientesButton;
-    private JTextField idstock;
     private JScrollPane paneton2;
+    private JTextField idproveedor;
 
     Connect jj=new Connect();
     DefaultTableModel hh = new DefaultTableModel();
@@ -179,7 +179,7 @@ public class proveedores {
                 teldb = Integer.parseInt(telefono.getText());
                 domdb = domicilio.getText();
                 maildb = mail.getText();
-                iddb = Integer.parseInt((idstock.getText()));
+                iddb = Integer.parseInt((idproveedor.getText()));
                 try {
                     ps = con.prepareStatement("UPDATE proveedor SET nombre_razonsocial=?, cuit_o_cuil=?, telefono=?, domicilio=?, mail=? WHERE id_proveedor=?;");
                     ps.setString(1, nomdb);
@@ -207,7 +207,7 @@ public class proveedores {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 int fila = tablaproveedor.rowAtPoint(e.getPoint());
-                idstock.setText(tablaproveedor.getValueAt(fila,0).toString());
+                idproveedor.setText(tablaproveedor.getValueAt(fila,0).toString());
                 nombre.setText(tablaproveedor.getValueAt(fila,1).toString());
                 cuitcuil.setText(tablaproveedor.getValueAt(fila,2).toString());
                 telefono.setText(tablaproveedor.getValueAt(fila,3).toString());
@@ -217,6 +217,7 @@ public class proveedores {
         });
     }
     private void limpiar() {
+        idproveedor.setText("");
         nombre.setText("");
         cuitcuil.setText("");
         telefono.setText("");

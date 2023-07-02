@@ -113,9 +113,10 @@ public class stock {
                     for(int i=0; filas>i; i++) {
                         pp.removeRow(0);
                     }
+
                     MostrarTabla();
                     limpiar();
-                    IDstock();
+                    //IDstock();
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
@@ -174,18 +175,20 @@ public class stock {
             public void actionPerformed(ActionEvent e){
                 Connection con=jj.cc();
                 PreparedStatement ps;
-                String nomdb;
-                int cantdb, preciodb,iddb;
+                String nomdb,provdb;
+                int cantdb, preciodb,idstockdb;
+                idstockdb=Integer.parseInt(idstock.getText());
                 nomdb = nombrestock.getText();
+                provdb = proveedorBox.getSelectedItem().toString();
                 cantdb = Integer.parseInt(preciostock.getText());
                 preciodb = Integer.parseInt(cantidadstock.getText());
-                iddb = Integer.parseInt((idstock.getText()));
                 try {
-                    ps = con.prepareStatement("UPDATE productos SET nombre=?, precio=?, cantidad=? WHERE id_producto=?;");
+                    ps = con.prepareStatement("UPDATE productos SET nombre=?, precio=?, cantidad=?, nombre_razonsocial=? WHERE id_producto=?;");
                     ps.setString(1, nomdb);
                     ps.setInt(2, cantdb);
                     ps.setInt(3, preciodb);
-                    ps.setInt(4,iddb);
+                    ps.setString(4,provdb);
+                    ps.setInt(5,idstockdb);
                     ps.executeUpdate();
 
                     JOptionPane.showMessageDialog(null, "Producto Modificado");
@@ -226,56 +229,29 @@ public class stock {
             throw new RuntimeException(e);
         }
     }
-   /* public void ID_proveedor(JLabel id_proveedor){
-        String sql = "Select id_proveedor from proveedor";
-        try {
-            PreparedStatement ps = jj.con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()){
-
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
-  /*  int d;
-    public int fid(){
-        if (d==0)
-        { return (d=1);
-        }else{
-            d=d+1;
-            return d;
-        }
-    }*/
     private void limpiar() {
+        idstock.setText("");
         nombrestock.setText("");
         preciostock.setText("");
         cantidadstock.setText("");
     }
-    public void IDstock() {
-        String sql = "SELECT id_producto FROM productos WHERE id_producto = ?;";
-        String sql1 = "INSERT INTO productosxproveedor (fk_producto) VALUES (?);";
+
+ /*   public void IDstock(int id_producto) {
+
+        String sql = "INSERT INTO productosxproveedor (fk_producto) VALUES (?);";
         try {
             PreparedStatement ps = jj.con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             ResultSetMetaData resul = rs.getMetaData();
             int idproducto = resul.getColumnCount();
             ps.setInt(1, idproducto);
-            if (rs.next()) {
-                int id = rs.getInt("id_producto");
-                PreparedStatement ps1 = jj.con.prepareStatement(sql1);
-                ps1.setInt(1, id);
-                ps1.executeUpdate();
-
-                ps1.close();
-            }
 
             rs.close();
             ps.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
     public void setVisible(boolean c) {
         JFrame frame = new JFrame("stock");
         frame.setContentPane(new stock().panel2);
