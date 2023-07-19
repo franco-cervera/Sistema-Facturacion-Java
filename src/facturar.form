@@ -303,33 +303,12 @@
           <text value="MEDIO DE PAGO"/>
         </properties>
       </component>
-      <component id="51480" class="javax.swing.JComboBox" binding="boxmediopago">
-        <constraints>
-          <grid row="15" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <model>
-            <item value="Débito"/>
-            <item value="Crédito"/>
-            <item value="Efectivo"/>
-            <item value="Virtual"/>
-          </model>
-        </properties>
-      </component>
       <component id="81509" class="javax.swing.JLabel">
         <constraints>
           <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="DNI"/>
-        </properties>
-      </component>
-      <component id="4374" class="javax.swing.JLabel" binding="mediopago">
-        <constraints>
-          <grid row="15" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value=""/>
         </properties>
       </component>
       <component id="7eedf" class="javax.swing.JLabel" binding="hora">
@@ -570,6 +549,19 @@
           <font name="Roboto Light" size="12" style="1"/>
           <foreground color="-16776005"/>
           <text value=""/>
+        </properties>
+      </component>
+      <component id="51480" class="javax.swing.JComboBox" binding="boxmediopago">
+        <constraints>
+          <grid row="15" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value="Débito"/>
+            <item value="Crédito"/>
+            <item value="Efectivo"/>
+            <item value="Virtual"/>
+          </model>
         </properties>
       </component>
     </children>

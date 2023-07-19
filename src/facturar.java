@@ -56,7 +56,6 @@ public class facturar extends facturar1 {
             zz.addColumn("CANTIDAD");
             zz.addColumn("FECHA");
             zz.addColumn("HORA");
-            zz.addColumn("MEDIO PAGO");
 
             paneton5.setViewportView(tablafacturar);
             tablafacturar.setVisible(false);
@@ -65,55 +64,52 @@ public class facturar extends facturar1 {
             tablafacturar.setVisible(true);
     }
     public facturar() {
-    jj.conectar();
-    RellenarTabla();
-    fechayhora();
-    MostrarUsuario();
+        jj.conectar();
+        RellenarTabla();
+        fechayhora();
+        MostrarUsuario();
 
-         ADDButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
+        ADDButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-            if (mediopago.getText().length() == 0) {
-                JOptionPane.showMessageDialog(null,"COMPLETAR: Medio de Pago");
-            } else {
-                Object[] linea = new Object[7];
-                linea[0] = idcliente.getText();
-                linea[1] = desc.getText();
-                linea[2] = precio.getText();
-                linea[3] = cantidad.getText();
-                linea[4] = fecha.getText();
-                linea[5] = hora.getText();
-                linea[6] = mediopago.getText();
+                    Object[] linea = new Object[7];
+                    linea[0] = idcliente.getText();
+                    linea[1] = desc.getText();
+                    linea[2] = precio.getText();
+                    linea[3] = cantidad.getText();
+                    linea[4] = fecha.getText();
+                    linea[5] = hora.getText();
 
-                zz.addRow(linea);
-                tablafacturar.setModel(zz);
 
-                String b, c;
-                float n2, n3;
-                b = precio.getText();
-                n2 = Float.parseFloat(b);
-                c = cantidad.getText();
-                n3 = Float.parseFloat(c);
-                vv.ingresarn2(n3);
-                vv.ingresarn3(n2);
+                    zz.addRow(linea);
+                    tablafacturar.setModel(zz);
 
-                String d;
-                d = String.valueOf(vv.calcular());
-                subtotalll.setText(d);
+                    String b, c;
+                    float n2, n3;
+                    b = precio.getText();
+                    n2 = Float.parseFloat(b);
+                    c = cantidad.getText();
+                    n3 = Float.parseFloat(c);
+                    vv.ingresarn2(n3);
+                    vv.ingresarn3(n2);
+
+                    String d;
+                    d = String.valueOf(vv.calcular());
+                    subtotalll.setText(d);
                 }
             }
-        });
-         stockButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            stock ee = new stock();
-            ee.setVisible(true);
-            JFrame facturarFrame = (JFrame) SwingUtilities.getRoot(panel5);
-            facturarFrame.dispose();
+        );
+        stockButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                stock ee = new stock();
+                ee.setVisible(true);
+                JFrame facturarFrame = (JFrame) SwingUtilities.getRoot(panel5);
+                facturarFrame.dispose();
             }
         });
-         clientesButton.addActionListener(new ActionListener() {
+        clientesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 clientes cc = new clientes();
@@ -122,32 +118,32 @@ public class facturar extends facturar1 {
                 facturarFrame.dispose();
             }
         });
-          proveedorButton.addActionListener(new ActionListener() {
+        proveedorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                proveedores dd=new proveedores();
+                proveedores dd = new proveedores();
                 dd.setVisible(true);
                 JFrame facturarFrame = (JFrame) SwingUtilities.getRoot(panel5);
                 facturarFrame.dispose();
             }
         });
-          calcularButton.addActionListener(new ActionListener() {
+        calcularButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String a;
                 float n1;
-                a=descuento.getText();
-                n1=Float.parseFloat(a);
+                a = descuento.getText();
+                n1 = Float.parseFloat(a);
                 vv.ingresarn1(n1);
                 vv.calcular2();
                 String g;
-                g=String.valueOf(vv.calcular2());
+                g = String.valueOf(vv.calcular2());
                 totalll.setText(g);
 
             }
         });
 
-          COMPROBARButton.addActionListener(new ActionListener() {
+        COMPROBARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -156,13 +152,12 @@ public class facturar extends facturar1 {
 
                 String sql0;
                 try {
-                    sql0= "select id_clientes from clientes where dni="+cuitcuildb+"";
+                    sql0 = "select id_clientes from clientes where dni=" + cuitcuildb + "";
 
-                    PreparedStatement ss =jj.con.prepareStatement(sql0);
-                    ResultSet  rs = ss.executeQuery();
-                    while (rs.next())
-                    {
-                        String id= rs.getString(1);
+                    PreparedStatement ss = jj.con.prepareStatement(sql0);
+                    ResultSet rs = ss.executeQuery();
+                    while (rs.next()) {
+                        String id = rs.getString(1);
                         idcliente.setText(id);
                     }
                 } catch (SQLException ex) {
@@ -170,27 +165,25 @@ public class facturar extends facturar1 {
                 }
                 String sql;
                 try {
-                    sql= "select nombre from clientes where dni="+cuitcuildb+"";
+                    sql = "select nombre from clientes where dni=" + cuitcuildb + "";
 
-                    PreparedStatement ss =jj.con.prepareStatement(sql);
-                    ResultSet  rs = ss.executeQuery();
-                    while (rs.next())
-                    {
-                    String nom= rs.getString(1);
-                    nombre.setText(nom);
+                    PreparedStatement ss = jj.con.prepareStatement(sql);
+                    ResultSet rs = ss.executeQuery();
+                    while (rs.next()) {
+                        String nom = rs.getString(1);
+                        nombre.setText(nom);
                     }
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
                 String sql6;
                 try {
-                    sql6= "select apellido from clientes where dni="+cuitcuildb+"";
+                    sql6 = "select apellido from clientes where dni=" + cuitcuildb + "";
 
-                    PreparedStatement ss =jj.con.prepareStatement(sql6);
-                    ResultSet  rs = ss.executeQuery();
-                    while (rs.next())
-                    {
-                        String ape= rs.getString(1);
+                    PreparedStatement ss = jj.con.prepareStatement(sql6);
+                    ResultSet rs = ss.executeQuery();
+                    while (rs.next()) {
+                        String ape = rs.getString(1);
                         apellido.setText(ape);
                     }
                 } catch (SQLException ex) {
@@ -198,13 +191,12 @@ public class facturar extends facturar1 {
                 }
                 String sql2;
                 try {
-                    sql2= "select dni from clientes where dni="+cuitcuildb+"";
+                    sql2 = "select dni from clientes where dni=" + cuitcuildb + "";
 
-                    PreparedStatement ss =jj.con.prepareStatement(sql2);
-                    ResultSet  rs = ss.executeQuery();
-                    while (rs.next())
-                    {
-                        String dni= rs.getString(1);
+                    PreparedStatement ss = jj.con.prepareStatement(sql2);
+                    ResultSet rs = ss.executeQuery();
+                    while (rs.next()) {
+                        String dni = rs.getString(1);
                         cuitcuil.setText(dni);
                     }
                 } catch (SQLException ex) {
@@ -212,13 +204,12 @@ public class facturar extends facturar1 {
                 }
                 String sql3;
                 try {
-                    sql3= "select telefono from clientes where dni="+cuitcuildb+"";
+                    sql3 = "select telefono from clientes where dni=" + cuitcuildb + "";
 
-                    PreparedStatement ss =jj.con.prepareStatement(sql3);
-                    ResultSet  rs = ss.executeQuery();
-                    while (rs.next())
-                    {
-                        String tel= rs.getString(1);
+                    PreparedStatement ss = jj.con.prepareStatement(sql3);
+                    ResultSet rs = ss.executeQuery();
+                    while (rs.next()) {
+                        String tel = rs.getString(1);
                         telefono.setText(tel);
                     }
                 } catch (SQLException ex) {
@@ -226,13 +217,12 @@ public class facturar extends facturar1 {
                 }
                 String sql4;
                 try {
-                    sql4= "select domicilio from clientes where dni="+cuitcuildb+"";
+                    sql4 = "select domicilio from clientes where dni=" + cuitcuildb + "";
 
-                    PreparedStatement ss =jj.con.prepareStatement(sql4);
-                    ResultSet  rs = ss.executeQuery();
-                    while (rs.next())
-                    {
-                        String dom= rs.getString(1);
+                    PreparedStatement ss = jj.con.prepareStatement(sql4);
+                    ResultSet rs = ss.executeQuery();
+                    while (rs.next()) {
+                        String dom = rs.getString(1);
                         domicilio.setText(dom);
                     }
                 } catch (SQLException ex) {
@@ -240,13 +230,12 @@ public class facturar extends facturar1 {
                 }
                 String sql5;
                 try {
-                    sql5= "select mail from clientes where dni="+cuitcuildb+"";
+                    sql5 = "select mail from clientes where dni=" + cuitcuildb + "";
 
-                    PreparedStatement ss =jj.con.prepareStatement(sql5);
-                    ResultSet  rs = ss.executeQuery();
-                    while (rs.next())
-                    {
-                        String correo= rs.getString(1);
+                    PreparedStatement ss = jj.con.prepareStatement(sql5);
+                    ResultSet rs = ss.executeQuery();
+                    while (rs.next()) {
+                        String correo = rs.getString(1);
                         mail.setText(correo);
                     }
                 } catch (SQLException ex) {
@@ -261,13 +250,12 @@ public class facturar extends facturar1 {
                 id_stock = Integer.parseInt(idstock.getText());
                 String sql6;
                 try {
-                    sql6= "select nombre from productos where id_producto="+id_stock+"";
+                    sql6 = "select nombre from productos where id_producto=" + id_stock + "";
 
-                    PreparedStatement ss =jj.con.prepareStatement(sql6);
-                    ResultSet  rs = ss.executeQuery();
-                    while (rs.next())
-                    {
-                        String descr= rs.getString(1);
+                    PreparedStatement ss = jj.con.prepareStatement(sql6);
+                    ResultSet rs = ss.executeQuery();
+                    while (rs.next()) {
+                        String descr = rs.getString(1);
                         desc.setText(descr);
                     }
                 } catch (SQLException ex) {
@@ -275,13 +263,12 @@ public class facturar extends facturar1 {
                 }
                 String sql7;
                 try {
-                    sql7= "select precio from productos where id_producto="+id_stock+"";
+                    sql7 = "select precio from productos where id_producto=" + id_stock + "";
 
-                    PreparedStatement ss =jj.con.prepareStatement(sql7);
-                    ResultSet  rs = ss.executeQuery();
-                    while (rs.next())
-                    {
-                        String costo= rs.getString(1);
+                    PreparedStatement ss = jj.con.prepareStatement(sql7);
+                    ResultSet rs = ss.executeQuery();
+                    while (rs.next()) {
+                        String costo = rs.getString(1);
                         precio.setText(costo);
                     }
                 } catch (SQLException ex) {
@@ -289,13 +276,12 @@ public class facturar extends facturar1 {
                 }
                 String sql8;
                 try {
-                    sql8= "select cantidad from productos where id_producto="+id_stock+"";
+                    sql8 = "select cantidad from productos where id_producto=" + id_stock + "";
 
-                    PreparedStatement ss =jj.con.prepareStatement(sql8);
-                    ResultSet  rs = ss.executeQuery();
-                    while (rs.next())
-                    {
-                        String cant= rs.getString(1);
+                    PreparedStatement ss = jj.con.prepareStatement(sql8);
+                    ResultSet rs = ss.executeQuery();
+                    while (rs.next()) {
+                        String cant = rs.getString(1);
                         cantidad.setText(cant);
                     }
                 } catch (SQLException ex) {
@@ -304,13 +290,12 @@ public class facturar extends facturar1 {
 
                 String sql20;
                 try {
-                    sql20= "select id_producto from productos where id_producto="+id_stock+"";
+                    sql20 = "select id_producto from productos where id_producto=" + id_stock + "";
 
-                    PreparedStatement ss =jj.con.prepareStatement(sql20);
-                    ResultSet  rs = ss.executeQuery();
-                    while (rs.next())
-                    {
-                        String idprod= rs.getString(1);
+                    PreparedStatement ss = jj.con.prepareStatement(sql20);
+                    ResultSet rs = ss.executeQuery();
+                    while (rs.next()) {
+                        String idprod = rs.getString(1);
                         idproducto.setText(idprod);
                     }
                 } catch (SQLException ex) {
@@ -322,7 +307,7 @@ public class facturar extends facturar1 {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                Connection con=jj.cc();
+                Connection con = jj.cc();
                 PreparedStatement ps;
 
                 int fila = tablafacturar.getSelectedRow();
@@ -330,69 +315,84 @@ public class facturar extends facturar1 {
                 float cantid = Float.parseFloat(tablafacturar.getValueAt(fila, 3).toString());
                 zz.removeRow(fila);
 
-                float valores= (var * cantid);
+                float valores = (var * cantid);
 
                 vv.ingresarn3(valores);
 
                 String sub;
-                sub=String.valueOf(vv.restar());
+                sub = String.valueOf(vv.restar());
                 subtotalll.setText(sub);
+                limpiar();
             }
         });
+
         FACTURARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Connection con = jj.cc();
+                float totaldb;
+                int idproddb;
+                idproddb = Integer.parseInt(idproducto.getText());
+                totaldb = Float.parseFloat(totalll.getText());
 
-                if(tablafacturar.getRowCount()>0){
-                    for(int i=0; i < tablafacturar.getRowCount(); i++){
+                if (tablafacturar.getRowCount() > 0 && !totalll.getText().isEmpty()) {
+                    try {
+                        PreparedStatement ps = con.prepareStatement("insert into facturas (fecha,hora,total,mediopago) values (?,?,?,?);", PreparedStatement.RETURN_GENERATED_KEYS);
+                        ps.setString(1, tablafacturar.getValueAt(0, 4).toString());
+                        ps.setString(2, tablafacturar.getValueAt(0, 5).toString());
+                        ps.setFloat(3, totaldb);
+                        ps.setString(4, boxmediopago.getSelectedItem().toString());
 
-                        try {
-                            vv.ingresarn3(Float.parseFloat(tablafacturar.getValueAt(i,2).toString()));
-                            vv.ingresarn2(Float.parseFloat(tablafacturar.getValueAt(i,3).toString()));
 
-                            PreparedStatement ps=con.prepareStatement("insert into detalle_facturas (id_producto,id_factura,cantidad,precio) values (?,?,?,?);");
+                        ps.executeUpdate();
 
-                            ps.setString(1,tablafacturar.getValueAt(i,1).toString());
-                            //ps.setString(2,usuario.getText());
-                            ps.setString(3,tablafacturar.getValueAt(i,3).toString());
-                            ps.setString(4,tablafacturar.getValueAt(i,2).toString());
-                           // ps.setString(5, String.valueOf(vv.facturar()));
-
-                            ps.executeUpdate();
-
-                         /*   PreparedStatement ps1=con.prepareStatement("insert into detalle_factura (id_producto,cantidad,precio) values (?,?,?);");
-                            ps1.setString(1,idproducto.getText());
-                            ps1.setString(2,tablafacturar.getValueAt(i,3).toString());
-                            ps1.setString(3,tablafacturar.getValueAt(i,2).toString());
-
-                            ps1.executeUpdate();*/
-                        } catch (SQLException ex) {
-                            ex.printStackTrace();
+                        // Obtener el ID generado para la factura recién insertada
+                        ResultSet generatedKeys = ps.getGeneratedKeys();
+                        int idFacturaGenerada = -1; // Valor por defecto si no se obtiene un ID válido
+                        if (generatedKeys.next()) {
+                            idFacturaGenerada = generatedKeys.getInt(1);
                         }
-                    }
-                    while (zz.getRowCount() > 0)
-                    {
-                        zz.removeRow(0);
-                    }
-                    limpiar();
-                    vv.reinicio();
-                    JOptionPane.showMessageDialog(null,"Factura Guardada");
-                } else {
-                    JOptionPane.showMessageDialog(null,"Error: Tabla Vacía");
-                }
-            }
-        });
 
-        boxmediopago.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mediopago.setText("" + boxmediopago.getSelectedItem());
+                        if (idFacturaGenerada != -1) {
+                            for (int i = 0; i < tablafacturar.getRowCount(); i++) {
+                                try {
+                                    vv.ingresarn3(Float.parseFloat(tablafacturar.getValueAt(i, 2).toString()));
+                                    vv.ingresarn2(Float.parseFloat(tablafacturar.getValueAt(i, 3).toString()));
+
+                                    PreparedStatement ps1 = con.prepareStatement("Insert into detalle_factura (fk2_producto,fk3_facturas,cantidad,precio) values (?,?,?,?);");
+
+                                    ps1.setInt(1,idproddb);
+                                    ps1.setInt(2,idFacturaGenerada); // Usar el ID de la factura generada
+                                    ps1.setInt(3, Integer.parseInt(tablafacturar.getValueAt(i,3).toString()));
+                                    ps1.setInt(4, Integer.parseInt(tablafacturar.getValueAt(i,2).toString()));
+
+                                    ps1.executeUpdate();
+
+                                } catch (SQLException ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+                            while (zz.getRowCount() > 0) {
+                                zz.removeRow(0);
+                            }
+                            limpiar();
+                            vv.reinicio();
+                            JOptionPane.showMessageDialog(null, "Factura Guardada");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Error al obtener el ID de la factura generada");
+                        }
+
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error: Campo Vacío");
+                }
             }
         });
     }
 
-    public void fechayhora(){
+        public void fechayhora(){
 
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         String fechax = dateFormat.format(new Date());

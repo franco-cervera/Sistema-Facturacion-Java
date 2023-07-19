@@ -132,7 +132,7 @@ public class stock {
                 int fila = tablastock.getSelectedRow();
                 String codigo = tablastock.getValueAt(fila, 0).toString();
                 try {
-                    ps = con.prepareStatement("DELETE FROM productos WHERE id=?");
+                    ps = con.prepareStatement("DELETE FROM productos WHERE id_producto=?");
                     ps.setString(1, codigo);
                     ps.execute();
                 } catch (SQLException exc) {
