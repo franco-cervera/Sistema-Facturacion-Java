@@ -93,17 +93,18 @@ public class proveedores {
                 Connection con=jj.cc();
                 PreparedStatement ps;
 
-                String nomdb,domdb,maildb,cuitcuildb,teldb;
+                String nomdb,domdb,maildb;
+                int cuitcuildb,teldb;
                 nomdb = nombre.getText();
-                cuitcuildb = cuitcuil.getText();
-                teldb = telefono.getText();
+                cuitcuildb = Integer.parseInt(cuitcuil.getText());
+                teldb = Integer.parseInt(telefono.getText());
                 domdb = domicilio.getText();
                 maildb = mail.getText();
                 try {
                     ps = con.prepareStatement("insert into proveedor(nombre_razonsocial,cuit_o_cuil,telefono,domicilio,mail) values(?,?,?,?,?);");
                     ps.setString(1, nomdb);
-                    ps.setString(2, cuitcuildb);
-                    ps.setString(3, teldb);
+                    ps.setInt(2, cuitcuildb);
+                    ps.setInt(3, teldb);
                     ps.setString(4, domdb);
                     ps.setString(5, maildb);
                     ps.executeUpdate();
@@ -139,6 +140,7 @@ public class proveedores {
                 limpiar();
             }
         });
+
         stockButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

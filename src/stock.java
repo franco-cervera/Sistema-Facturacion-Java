@@ -88,9 +88,9 @@ public class stock {
         ADDButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                Connection con=jj.cc();
-                PreparedStatement ps;
+                Connection con = jj.cc();
+                PreparedStatement ps, ps1;
+                ResultSet rs;
 
                 String nomdb, nomproveedor;
                 int cantdb, preciodb;
@@ -100,7 +100,6 @@ public class stock {
                 nomproveedor = proveedorBox.getSelectedItem().toString();
 
                 try {
-
                     ps = con.prepareStatement("insert into productos(nombre,precio,cantidad,nombre_razonsocial) values(?,?,?,?);");
                     ps.setString(1, nomdb);
                     ps.setInt(2, preciodb);
@@ -108,15 +107,25 @@ public class stock {
                     ps.setString(4,nomproveedor);
                     ps.executeUpdate();
 
+                /*    rs = ps.getGeneratedKeys();
+                    int idProducto = -1;
+                    if (rs.next()) {
+                        idProducto = rs.getInt(1);
+                    }
+
+                    ps1 = con.prepareStatement("INSERT INTO productosxproveedor(fk_producto, fk_proveedor) VALUES (?, ?);");
+                    ps1.setInt(1, idProducto);
+                    ps1.setInt(2, idProveedor);
+                    ps1.executeUpdate();*/
+
                     JOptionPane.showMessageDialog(null, "Producto Guardado");
-                    int filas=pp.getRowCount();
-                    for(int i=0; filas>i; i++) {
+                    int filas = pp.getRowCount();
+                    for (int i = 0; filas > i; i++) {
                         pp.removeRow(0);
                     }
 
                     MostrarTabla();
                     limpiar();
-                    //IDstock();
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
@@ -223,7 +232,7 @@ public class stock {
             PreparedStatement ps =jj.con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-               proveedor.addItem(rs.getString("nombre_razonsocial"));
+                proveedor.addItem(rs.getString("nombre_razonsocial"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -236,22 +245,6 @@ public class stock {
         cantidadstock.setText("");
     }
 
- /*   public void IDstock(int id_producto) {
-
-        String sql = "INSERT INTO productosxproveedor (fk_producto) VALUES (?);";
-        try {
-            PreparedStatement ps = jj.con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            ResultSetMetaData resul = rs.getMetaData();
-            int idproducto = resul.getColumnCount();
-            ps.setInt(1, idproducto);
-
-            rs.close();
-            ps.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
     public void setVisible(boolean c) {
         JFrame frame = new JFrame("stock");
         frame.setContentPane(new stock().panel2);

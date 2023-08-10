@@ -56,6 +56,8 @@ public class facturar extends facturar1 {
             zz.addColumn("CANTIDAD");
             zz.addColumn("FECHA");
             zz.addColumn("HORA");
+            zz.addColumn("MEDIO PAGO");
+
 
             paneton5.setViewportView(tablafacturar);
             tablafacturar.setVisible(false);
@@ -80,6 +82,7 @@ public class facturar extends facturar1 {
                     linea[3] = cantidad.getText();
                     linea[4] = fecha.getText();
                     linea[5] = hora.getText();
+                    linea[6] = boxmediopago.getSelectedItem();
 
 
                     zz.addRow(linea);
@@ -331,9 +334,11 @@ public class facturar extends facturar1 {
             public void actionPerformed(ActionEvent e) {
                 Connection con = jj.cc();
                 float totaldb;
-                int idproddb;
+                int idproddb,idclientedb,userdb;
                 idproddb = Integer.parseInt(idproducto.getText());
                 totaldb = Float.parseFloat(totalll.getText());
+                idclientedb = Integer.parseInt(idcliente.getText());
+                userdb = Integer.parseInt(usuario.getText());
 
                 if (tablafacturar.getRowCount() > 0 && !totalll.getText().isEmpty()) {
                     try {
@@ -346,9 +351,8 @@ public class facturar extends facturar1 {
 
                         ps.executeUpdate();
 
-                        // Obtener el ID generado para la factura recién insertada
                         ResultSet generatedKeys = ps.getGeneratedKeys();
-                        int idFacturaGenerada = -1; // Valor por defecto si no se obtiene un ID válido
+                        int idFacturaGenerada = -1;
                         if (generatedKeys.next()) {
                             idFacturaGenerada = generatedKeys.getInt(1);
                         }
@@ -362,11 +366,25 @@ public class facturar extends facturar1 {
                                     PreparedStatement ps1 = con.prepareStatement("Insert into detalle_factura (fk2_producto,fk3_facturas,cantidad,precio) values (?,?,?,?);");
 
                                     ps1.setInt(1,idproddb);
-                                    ps1.setInt(2,idFacturaGenerada); // Usar el ID de la factura generada
+                                    ps1.setInt(2,idFacturaGenerada);
                                     ps1.setInt(3, Integer.parseInt(tablafacturar.getValueAt(i,3).toString()));
                                     ps1.setInt(4, Integer.parseInt(tablafacturar.getValueAt(i,2).toString()));
 
                                     ps1.executeUpdate();
+
+                                    PreparedStatement ps2 = con.prepareStatement("Insert into clientesXfacturas (fk_clientes, fk2_factura) values (?,?);");
+
+                                    ps2.setInt(1,idclientedb);
+                                    ps2.setInt(2,idFacturaGenerada);
+
+                                    ps2.executeUpdate();
+
+                                    PreparedStatement ps3 = con.prepareStatement("Insert into usuarioXfacturas (fk_usuarios, fk_factura) values (?,?);");
+
+                                    ps3.setInt(1,userdb);
+                                    ps3.setInt(2,idFacturaGenerada);
+
+                                    ps3.executeUpdate();
 
                                 } catch (SQLException ex) {
                                     ex.printStackTrace();
