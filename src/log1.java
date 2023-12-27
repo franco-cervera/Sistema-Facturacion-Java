@@ -5,30 +5,27 @@ import java.sql.SQLException;
 
 public class log1 {
     Connect jj = new Connect();
-    private String user, pass;
-
-    public void ingresar1(String username) {
-        user = username;
-    }
-
-    public void ingresar2(String password) {
-        pass = password;
-    }
-
-    public boolean logInButton() {
+    public int logInButton(String username, String password) {
         jj.conectar();
         Connection con = jj.cc();
         PreparedStatement ps;
-        String sql = "SELECT * FROM usuarios WHERE nombre = ? AND contraseña = ?";
-        try {
-        ps = con.prepareStatement(sql);
-        ps.setString(1, user);
-        ps.setString(2, pass);
-            try (ResultSet resultSet = ps.executeQuery()) {
-                return resultSet.next();
+        String sql = "SELECT id_usuarios FROM usuarios WHERE nombre = ? AND contraseña = ?";
 
-        }} catch (SQLException e) {
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setString(2, password);
+
+            try (ResultSet resultSet = ps.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getInt("id_usuarios"); // Obtener el ID del usuario y retornarlo
+                }
+            }
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-    }}
+        return -1;
+    }
+
+}

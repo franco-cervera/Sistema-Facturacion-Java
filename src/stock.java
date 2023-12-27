@@ -107,18 +107,7 @@ public class stock {
                     ps.setString(4,nomproveedor);
                     ps.executeUpdate();
 
-                /*    rs = ps.getGeneratedKeys();
-                    int idProducto = -1;
-                    if (rs.next()) {
-                        idProducto = rs.getInt(1);
-                    }
-
-                    ps1 = con.prepareStatement("INSERT INTO productosxproveedor(fk_producto, fk_proveedor) VALUES (?, ?);");
-                    ps1.setInt(1, idProducto);
-                    ps1.setInt(2, idProveedor);
-                    ps1.executeUpdate();*/
-
-                    JOptionPane.showMessageDialog(null, "Producto Guardado");
+                    JOptionPane.showMessageDialog(null, "Producto Guardado","Completado",JOptionPane.INFORMATION_MESSAGE);
                     int filas = pp.getRowCount();
                     for (int i = 0; filas > i; i++) {
                         pp.removeRow(0);
@@ -148,7 +137,7 @@ public class stock {
                     throw new RuntimeException(exc);
                 }
                 pp.removeRow(fila);
-                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                JOptionPane.showMessageDialog(null, "Producto Eliminado","Completado",JOptionPane.INFORMATION_MESSAGE);
                 limpiar();
             }
         });
@@ -200,7 +189,7 @@ public class stock {
                     ps.setInt(5,idstockdb);
                     ps.executeUpdate();
 
-                    JOptionPane.showMessageDialog(null, "Producto Modificado");
+                    JOptionPane.showMessageDialog(null, "Producto Modificado","Completado",JOptionPane.INFORMATION_MESSAGE);
                     int filas=pp.getRowCount();
                     for(int i=0; filas>i; i++) {
                         pp.removeRow(0);

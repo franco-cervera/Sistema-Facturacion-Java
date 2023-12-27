@@ -113,7 +113,7 @@ public class clientes {
                     ps.setString(6, maildb);
                     ps.executeUpdate();
 
-                    JOptionPane.showMessageDialog(null, "Cliente Guardado");
+                    JOptionPane.showMessageDialog(null, "Cliente Guardado","Completado",JOptionPane.INFORMATION_MESSAGE);
                     int filas=gg.getRowCount();
                     for(int i=0; filas>i; i++) {
                         gg.removeRow(0);
@@ -140,7 +140,7 @@ public class clientes {
                     throw new RuntimeException(exc);
                 }
                 gg.removeRow(fila);
-                JOptionPane.showMessageDialog(null, "Cliente Eliminado");
+                JOptionPane.showMessageDialog(null, "Cliente Eliminado","Completado",JOptionPane.INFORMATION_MESSAGE);
                 limpiar();
             }
         });
@@ -196,7 +196,7 @@ public class clientes {
                     ps.setInt(7,iddb);
                     ps.executeUpdate();
 
-                    JOptionPane.showMessageDialog(null, "Proveedor Modificado");
+                    JOptionPane.showMessageDialog(null, "Proveedor Modificado","Completado",JOptionPane.INFORMATION_MESSAGE);
                     int filas=gg.getRowCount();
                     for(int i=0; filas>i; i++) {
                         gg.removeRow(0);

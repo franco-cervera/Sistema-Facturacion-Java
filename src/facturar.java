@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class facturar extends facturar1 {
-    private JPanel panel5;
+    public JPanel panel5;
     private JTextField nombre;
     private JTextField cuitcuil;
     private JTextField telefono;
@@ -43,65 +43,76 @@ public class facturar extends facturar1 {
     private JLabel fecha;
     private JTextField idproducto;
     private JTextField apellido;
-    private JLabel usuario;
-    facturar1 vv= new facturar1();
-    Connect jj=new Connect();
+    public JLabel usuario;
+    private int userId;
+    facturar1 vv = new facturar1();
+    Connect jj = new Connect();
     DefaultTableModel zz = new DefaultTableModel();
 
     public void RellenarTabla() {
 
-            zz.addColumn("ID CLIENTE");
-            zz.addColumn("PRODUCTO");
-            zz.addColumn("PRECIO");
-            zz.addColumn("CANTIDAD");
-            zz.addColumn("FECHA");
-            zz.addColumn("HORA");
-            zz.addColumn("MEDIO PAGO");
+        zz.addColumn("ID CLIENTE");
+        zz.addColumn("PRODUCTO");
+        zz.addColumn("PRECIO");
+        zz.addColumn("CANTIDAD");
+        zz.addColumn("FECHA");
+        zz.addColumn("HORA");
+        zz.addColumn("MEDIO PAGO");
 
 
-            paneton5.setViewportView(tablafacturar);
-            tablafacturar.setVisible(false);
-            tablafacturar.setModel(zz);
-            zz.fireTableDataChanged();
-            tablafacturar.setVisible(true);
+        paneton5.setViewportView(tablafacturar);
+        tablafacturar.setVisible(false);
+        tablafacturar.setModel(zz);
+        zz.fireTableDataChanged();
+        tablafacturar.setVisible(true);
     }
+
     public facturar() {
         jj.conectar();
         RellenarTabla();
         fechayhora();
-        MostrarUsuario();
+        MostrarID();
 
         ADDButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                    Object[] linea = new Object[7];
-                    linea[0] = idcliente.getText();
-                    linea[1] = desc.getText();
-                    linea[2] = precio.getText();
-                    linea[3] = cantidad.getText();
-                    linea[4] = fecha.getText();
-                    linea[5] = hora.getText();
-                    linea[6] = boxmediopago.getSelectedItem();
+                String idClienteValue = idcliente.getText();
+                String descValue = desc.getText();
+                String precioValue = precio.getText();
+                String cantidadValue = cantidad.getText();
+                String fechaValue = fecha.getText();
+                String horaValue = hora.getText();
 
+                if (idClienteValue.isEmpty() || descValue.isEmpty() || precioValue.isEmpty() ||
+                        cantidadValue.isEmpty() || fechaValue.isEmpty() || horaValue.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Todos los campos deben estar completos", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                } else {
+
+                    Object[] linea = new Object[7];
+                    linea[0] = idClienteValue;
+                    linea[1] = descValue;
+                    linea[2] = precioValue;
+                    linea[3] = cantidadValue;
+                    linea[4] = fechaValue;
+                    linea[5] = horaValue;
+                    linea[6] = boxmediopago.getSelectedItem();
 
                     zz.addRow(linea);
                     tablafacturar.setModel(zz);
 
-                    String b, c;
                     float n2, n3;
-                    b = precio.getText();
-                    n2 = Float.parseFloat(b);
-                    c = cantidad.getText();
-                    n3 = Float.parseFloat(c);
+                    n2 = Float.parseFloat(precioValue);
+                    n3 = Float.parseFloat(cantidadValue);
                     vv.ingresarn2(n3);
                     vv.ingresarn3(n2);
 
-                    String d;
-                    d = String.valueOf(vv.calcular());
+                    String d = String.valueOf(vv.calcularsub());
                     subtotalll.setText(d);
+                    totalll.setText("0");
                 }
             }
+        }
         );
         stockButton.addActionListener(new ActionListener() {
             @Override
@@ -136,13 +147,16 @@ public class facturar extends facturar1 {
                 String a;
                 float n1;
                 a = descuento.getText();
+                if(a.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Ingrese un valor de descuento", "Atención", JOptionPane.WARNING_MESSAGE);
+
+                }else{
                 n1 = Float.parseFloat(a);
                 vv.ingresarn1(n1);
-                vv.calcular2();
                 String g;
                 g = String.valueOf(vv.calcular2());
                 totalll.setText(g);
-
+            }
             }
         });
 
@@ -310,22 +324,32 @@ public class facturar extends facturar1 {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                Connection con = jj.cc();
-                PreparedStatement ps;
+                    int fila = tablafacturar.getSelectedRow();
+                    float var = Float.parseFloat(tablafacturar.getValueAt(fila, 2).toString());
+                    float cantid = Float.parseFloat(tablafacturar.getValueAt(fila, 3).toString());
+                    zz.removeRow(fila);
 
-                int fila = tablafacturar.getSelectedRow();
-                float var = Float.parseFloat(tablafacturar.getValueAt(fila, 2).toString());
-                float cantid = Float.parseFloat(tablafacturar.getValueAt(fila, 3).toString());
-                zz.removeRow(fila);
+                    float valores = (var * cantid);
 
-                float valores = (var * cantid);
+                    vv.ingresarn3(valores);
 
-                vv.ingresarn3(valores);
+                    String sub,totalDes,tot,a;
+                    float n1;
 
-                String sub;
-                sub = String.valueOf(vv.restar());
-                subtotalll.setText(sub);
-                limpiar();
+                     a = descuento.getText();
+                     n1 = Float.parseFloat(a);
+                    if(n1>0) {
+                        totalDes = String.valueOf(vv.RestarTotalDescuento());
+                        totalll.setText(totalDes);
+                    }else{
+                        tot=String.valueOf(vv.RestarTotal());
+                        totalll.setText((tot));
+                    }
+
+                    sub = String.valueOf(vv.RestarSub());
+                    subtotalll.setText(sub);
+
+                    descuento.setText("0");
             }
         });
 
@@ -334,13 +358,13 @@ public class facturar extends facturar1 {
             public void actionPerformed(ActionEvent e) {
                 Connection con = jj.cc();
                 float totaldb;
-                int idproddb,idclientedb,userdb;
+                int idproddb, idclientedb, userdb;
                 idproddb = Integer.parseInt(idproducto.getText());
                 totaldb = Float.parseFloat(totalll.getText());
                 idclientedb = Integer.parseInt(idcliente.getText());
                 userdb = Integer.parseInt(usuario.getText());
 
-                if (tablafacturar.getRowCount() > 0 && !totalll.getText().isEmpty()) {
+                if (tablafacturar.getRowCount() > 0) {
                     try {
                         PreparedStatement ps = con.prepareStatement("insert into facturas (fecha,hora,total,mediopago) values (?,?,?,?);", PreparedStatement.RETURN_GENERATED_KEYS);
                         ps.setString(1, tablafacturar.getValueAt(0, 4).toString());
@@ -365,24 +389,24 @@ public class facturar extends facturar1 {
 
                                     PreparedStatement ps1 = con.prepareStatement("Insert into detalle_factura (fk2_producto,fk3_facturas,cantidad,precio) values (?,?,?,?);");
 
-                                    ps1.setInt(1,idproddb);
-                                    ps1.setInt(2,idFacturaGenerada);
-                                    ps1.setInt(3, Integer.parseInt(tablafacturar.getValueAt(i,3).toString()));
-                                    ps1.setInt(4, Integer.parseInt(tablafacturar.getValueAt(i,2).toString()));
+                                    ps1.setInt(1, idproddb);
+                                    ps1.setInt(2, idFacturaGenerada);
+                                    ps1.setInt(3, Integer.parseInt(tablafacturar.getValueAt(i, 3).toString()));
+                                    ps1.setInt(4, Integer.parseInt(tablafacturar.getValueAt(i, 2).toString()));
 
                                     ps1.executeUpdate();
 
                                     PreparedStatement ps2 = con.prepareStatement("Insert into clientesXfacturas (fk_clientes, fk2_factura) values (?,?);");
 
-                                    ps2.setInt(1,idclientedb);
-                                    ps2.setInt(2,idFacturaGenerada);
+                                    ps2.setInt(1, idclientedb);
+                                    ps2.setInt(2, idFacturaGenerada);
 
                                     ps2.executeUpdate();
 
                                     PreparedStatement ps3 = con.prepareStatement("Insert into usuarioXfacturas (fk_usuarios, fk_factura) values (?,?);");
 
-                                    ps3.setInt(1,userdb);
-                                    ps3.setInt(2,idFacturaGenerada);
+                                    ps3.setInt(1, userdb);
+                                    ps3.setInt(2, idFacturaGenerada);
 
                                     ps3.executeUpdate();
 
@@ -394,23 +418,24 @@ public class facturar extends facturar1 {
                                 zz.removeRow(0);
                             }
                             limpiar();
-                            vv.reinicio();
-                            JOptionPane.showMessageDialog(null, "Factura Guardada");
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Error al obtener el ID de la factura generada");
-                        }
+                            vv.ResetTotal();
+                            vv.ResetSubtotal();
 
+                            JOptionPane.showMessageDialog(null, "Factura Guardada","Completado", JOptionPane.INFORMATION_MESSAGE);
+                        }
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error: Campo Vacío");
-                }
             }
-        });
+        }});
     }
+    public int setUserId(int userId)
+    {
+        this.userId=userId;
 
-        public void fechayhora(){
+        return userId;
+    }
+    public void fechayhora() {
 
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         String fechax = dateFormat.format(new Date());
@@ -433,21 +458,34 @@ public class facturar extends facturar1 {
         Thread hilo = new Thread(runnable);
         hilo.start();
     }
-    private void MostrarUsuario() {
-        String sql;
-        try {
-            sql = "select id_usuarios from usuarios";
 
-            PreparedStatement ss = jj.con.prepareStatement(sql);
-            ResultSet  rs = ss.executeQuery();
-            while (rs.next()) {
-                String id_user = rs.getString(1);
-                usuario.setText(id_user);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+ /* public void MostrarUsuario() {
+
+        String username = l2.getUser();
+        String password = l2.getPass();
+
+        int userID = ll.logInButton(username, password);
+
+        if (userID != -1) {
+            usuario.setText(String.valueOf(userID));
+            System.out.println("MUESTRA USUARIO: " + userID);
+        } else {
+            usuario.setText("Usuario no encontrado");
         }
+        System.out.println("ID USUARIO 2: " + userID);
+
+       System.out.println("USUARIO:" + username);
+       System.out.println("PASSWORD:" + password);
     }
+*/
+    public void MostrarID()
+    {
+       usuario.setText(Integer.toString(setUserId(userId)));
+       System.out.println("ID USUARIO: " + userId);
+
+    }
+
+
     private void limpiar() {
         subtotalll.setText("");
         totalll.setText("");

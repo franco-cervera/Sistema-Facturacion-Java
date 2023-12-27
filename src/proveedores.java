@@ -109,7 +109,7 @@ public class proveedores {
                     ps.setString(5, maildb);
                     ps.executeUpdate();
 
-                    JOptionPane.showMessageDialog(null, "Proveedor Guardado");
+                    JOptionPane.showMessageDialog(null, "Proveedor Guardado","Completado",JOptionPane.INFORMATION_MESSAGE);
                     int filas=hh.getRowCount();
                     for(int i=0; filas>i; i++) {
                         hh.removeRow(0);
@@ -136,7 +136,7 @@ public class proveedores {
                     throw new RuntimeException(exc);
                 }
                 hh.removeRow(fila);
-                JOptionPane.showMessageDialog(null, "Proveedor Eliminado");
+                JOptionPane.showMessageDialog(null, "Proveedor Eliminado","Completado",JOptionPane.INFORMATION_MESSAGE);
                 limpiar();
             }
         });
@@ -192,7 +192,7 @@ public class proveedores {
                     ps.setInt(6,iddb);
                     ps.executeUpdate();
 
-                    JOptionPane.showMessageDialog(null, "Proveedor Modificado");
+                    JOptionPane.showMessageDialog(null, "Proveedor Modificado","Completado",JOptionPane.INFORMATION_MESSAGE);
                     int filas=hh.getRowCount();
                     for(int i=0; filas>i; i++) {
                         hh.removeRow(0);

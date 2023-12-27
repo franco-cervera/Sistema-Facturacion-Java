@@ -41,7 +41,7 @@ public class registro {
                         ps.setString(6,catdb);
                         ps.executeUpdate();
 
-                        JOptionPane.showMessageDialog(null,"Usuario Registrado");
+                        JOptionPane.showMessageDialog(null,"Usuario Registrado","Completado",JOptionPane.INFORMATION_MESSAGE);
 
                         } catch (SQLException ex) {
                         throw new RuntimeException(ex);

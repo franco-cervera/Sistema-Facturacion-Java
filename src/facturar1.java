@@ -16,13 +16,22 @@ public class facturar1 {
     }
 
 
-    public float calcular(){
+    public float calcularsub(){
         if (cantidad==0 & valor==0) {
             JOptionPane.showMessageDialog(null, "Dato incorrecto");
             return 0;
         }else{
             subtotal=cantidad*valor+subtotal;
             return subtotal;
+        }
+    }
+    public float calculartotal(){
+        if (cantidad==0 & valor==0) {
+            JOptionPane.showMessageDialog(null, "Dato incorrecto");
+            return 0;
+        }else{
+            total=cantidad*valor+total;
+            return total;
         }
     }
     public float calcular2(){
@@ -41,7 +50,7 @@ public class facturar1 {
             return subtotal;
         }
     }
-    public float restar(){
+    public float RestarSub(){
         if(subtotal==0){
             return subtotal;
         }else{
@@ -49,10 +58,41 @@ public class facturar1 {
             return subtotal;
         }
     }
-    public void reinicio(){
-        subtotal=0;
-        descuento=0;
-        total=0;
+   public float RestarTotalDescuento(){
+        if(total==0) {
+            return total;
+        }else{
+            total=total-subtotal*descuento/100;
+            return total;
+        }
+    }
 
+    public float RestarTotal()
+    {
+        if(total==0){
+            return total;
+        } else {
+            total=total-valor;
+            return total;
+        }
+    }
+  /*public float restartotal() {
+      if (descuento > 0 && descuento <= 100) {
+          float descuentoAplicado = valor * descuento / 100;
+          total = total - descuentoAplicado;
+      } else {
+          total = total - valor;
+      }
+      return total;
+  }
+*/
+    public float ResetSubtotal(){
+        subtotal=0;
+       return subtotal;
+
+    }
+    public float ResetTotal() {
+        total=0;
+        return total;
     }
 }

@@ -1,2 +1,2 @@
 # Facturacion
-Este proyecto se encuentra en proceso..
+Proyecto en proceso..
