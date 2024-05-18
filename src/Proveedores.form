@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="proveedores">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Proveedores">
   <grid id="27dc6" binding="panel4" layout-manager="GridLayoutManager" row-count="8" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
@@ -51,14 +51,14 @@
           <text value="Clientes"/>
         </properties>
       </component>
-      <scrollpane id="381fe" binding="paneton2">
+      <scrollpane id="381fe" binding="scrollPane">
         <constraints>
           <grid row="7" column="0" row-span="1" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="c6a2d" class="javax.swing.JTable" binding="tablaproveedor">
+          <component id="c6a2d" class="javax.swing.JTable" binding="tablaProveedor">
             <constraints/>
             <properties>
               <background color="-5987935"/>
@@ -67,7 +67,7 @@
           </component>
         </children>
       </scrollpane>
-      <component id="7227c" class="javax.swing.JLabel" binding="nors1">
+      <component id="7227c" class="javax.swing.JLabel">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -76,7 +76,7 @@
           <text value="Nombre o razón social"/>
         </properties>
       </component>
-      <component id="2b9f0" class="javax.swing.JTextField" binding="nombre">
+      <component id="2b9f0" class="javax.swing.JTextField" binding="nombreField">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -90,7 +90,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="9cbb1" class="javax.swing.JLabel" binding="dni1">
+      <component id="9cbb1" class="javax.swing.JLabel">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -99,7 +99,7 @@
           <text value="CUIT o CUIL"/>
         </properties>
       </component>
-      <component id="54044" class="javax.swing.JTextField" binding="cuitcuil">
+      <component id="54044" class="javax.swing.JTextField" binding="cuitCuilField">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -112,7 +112,7 @@
           <selectionColor color="-4473925"/>
         </properties>
       </component>
-      <component id="49d67" class="javax.swing.JLabel" binding="tel1">
+      <component id="49d67" class="javax.swing.JLabel">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -121,7 +121,7 @@
           <text value="Teléfono"/>
         </properties>
       </component>
-      <component id="5036" class="javax.swing.JTextField" binding="telefono">
+      <component id="5036" class="javax.swing.JTextField" binding="telefonoField">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -134,7 +134,7 @@
           <selectionColor color="-4473925"/>
         </properties>
       </component>
-      <component id="6afa7" class="javax.swing.JLabel" binding="dom1">
+      <component id="6afa7" class="javax.swing.JLabel">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -143,7 +143,7 @@
           <text value="Domicilio"/>
         </properties>
       </component>
-      <component id="847e" class="javax.swing.JTextField" binding="domicilio">
+      <component id="847e" class="javax.swing.JTextField" binding="domicilioField">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -156,7 +156,7 @@
           <selectionColor color="-4473925"/>
         </properties>
       </component>
-      <component id="4454b" class="javax.swing.JLabel" binding="mail1">
+      <component id="4454b" class="javax.swing.JLabel">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -165,7 +165,7 @@
           <text value="Correo electrónico"/>
         </properties>
       </component>
-      <component id="64c3" class="javax.swing.JTextField" binding="mail">
+      <component id="64c3" class="javax.swing.JTextField" binding="mailField">
         <constraints>
           <grid row="6" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -178,7 +178,7 @@
           <selectionColor color="-4473925"/>
         </properties>
       </component>
-      <component id="1b47" class="javax.swing.JButton" binding="ADDButton" default-binding="true">
+      <component id="1b47" class="javax.swing.JButton" binding="addButton">
         <constraints>
           <grid row="0" column="3" row-span="3" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -189,7 +189,7 @@
           <text value="GUARDAR"/>
         </properties>
       </component>
-      <component id="34483" class="javax.swing.JButton" binding="ELIMINARButton" default-binding="true">
+      <component id="34483" class="javax.swing.JButton" binding="eliminarButton">
         <constraints>
           <grid row="5" column="3" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -200,7 +200,7 @@
           <text value="ELIMINAR"/>
         </properties>
       </component>
-      <component id="f4912" class="javax.swing.JButton" binding="MODIFICARButton" default-binding="true">
+      <component id="f4912" class="javax.swing.JButton" binding="modificarButton">
         <constraints>
           <grid row="3" column="3" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -219,7 +219,7 @@
           <text value="ID Proveedor"/>
         </properties>
       </component>
-      <component id="2018" class="javax.swing.JTextField" binding="idproveedor">
+      <component id="2018" class="javax.swing.JTextField" binding="idProveedorField">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

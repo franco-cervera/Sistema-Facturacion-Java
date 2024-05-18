@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="facturar">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Facturar">
   <grid id="27dc6" binding="panel5" layout-manager="GridLayoutManager" row-count="20" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="894" height="1056"/>
+      <xy x="20" y="20" width="707" height="727"/>
     </constraints>
     <properties>
       <background color="-1709313"/>
@@ -35,7 +35,7 @@
         </constraints>
         <properties>
           <background color="-589836"/>
-          <editable value="false"/>
+          <editable value="true"/>
           <font name="Courier New" size="14"/>
           <foreground color="-16777216"/>
           <selectionColor color="-4473925"/>
@@ -50,7 +50,7 @@
           <text value="DNI"/>
         </properties>
       </component>
-      <component id="f2e50" class="javax.swing.JTextField" binding="cuitcuil">
+      <component id="f2e50" class="javax.swing.JTextField" binding="cuitCuil">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -58,7 +58,7 @@
         </constraints>
         <properties>
           <background color="-589836"/>
-          <editable value="false"/>
+          <editable value="true"/>
           <font name="Courier New" size="14"/>
           <foreground color="-16777216"/>
           <selectionColor color="-4473925"/>
@@ -82,7 +82,7 @@
         </constraints>
         <properties>
           <background color="-589836"/>
-          <editable value="false"/>
+          <editable value="true"/>
           <font name="Courier New" size="14"/>
           <foreground color="-16777216"/>
           <selectionColor color="-4473925"/>
@@ -105,7 +105,7 @@
         </constraints>
         <properties>
           <background color="-589836"/>
-          <editable value="false"/>
+          <editable value="true"/>
           <font name="Courier New" size="14"/>
           <foreground color="-16777216"/>
           <selectionColor color="-4473925"/>
@@ -129,7 +129,7 @@
         </constraints>
         <properties>
           <background color="-589836"/>
-          <editable value="false"/>
+          <editable value="true"/>
           <font name="Courier New" size="14"/>
           <foreground color="-16777216"/>
           <selectionColor color="-4473925"/>
@@ -152,7 +152,7 @@
         </constraints>
         <properties>
           <background color="-589836"/>
-          <editable value="false"/>
+          <editable value="true"/>
           <font name="Courier New" size="14"/>
           <foreground color="-16777216"/>
           <selectionColor color="-4473925"/>
@@ -175,7 +175,7 @@
         </constraints>
         <properties>
           <background color="-589836"/>
-          <editable value="false"/>
+          <editable value="true"/>
           <font name="Courier New" size="14"/>
           <foreground color="-16777216"/>
           <selectionColor color="-4473925"/>
@@ -252,14 +252,14 @@
           <text value="Clientes"/>
         </properties>
       </component>
-      <scrollpane id="3170c" binding="paneton5">
+      <scrollpane id="3170c" binding="scrollPane">
         <constraints>
           <grid row="16" column="0" row-span="4" col-span="3" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="a2fd9" class="javax.swing.JTable" binding="tablafacturar">
+          <component id="a2fd9" class="javax.swing.JTable" binding="tablaFacturar">
             <constraints/>
             <properties>
               <background color="-5987935"/>
@@ -277,7 +277,7 @@
           <text value="ID Cliente"/>
         </properties>
       </component>
-      <component id="1d5fb" class="javax.swing.JTextField" binding="idcliente">
+      <component id="1d5fb" class="javax.swing.JTextField" binding="idCliente">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -285,7 +285,7 @@
         </constraints>
         <properties>
           <background color="-589836"/>
-          <editable value="false"/>
+          <editable value="true"/>
           <font name="Courier New" size="14"/>
           <foreground color="-16777216"/>
           <selectionColor color="-4473925"/>
@@ -303,15 +303,7 @@
           <text value="MEDIO DE PAGO"/>
         </properties>
       </component>
-      <component id="81509" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="DNI"/>
-        </properties>
-      </component>
-      <component id="7eedf" class="javax.swing.JLabel" binding="hora">
+      <component id="7eedf" class="javax.swing.JLabel" binding="horaLabel">
         <constraints>
           <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -319,7 +311,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="8c94d" class="javax.swing.JLabel" binding="fecha">
+      <component id="8c94d" class="javax.swing.JLabel" binding="fechaLabel">
         <constraints>
           <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -337,7 +329,7 @@
           <text value="ID Producto"/>
         </properties>
       </component>
-      <component id="a2fbf" class="javax.swing.JTextField" binding="idproducto">
+      <component id="a2fbf" class="javax.swing.JTextField" binding="idProducto">
         <constraints>
           <grid row="10" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -345,7 +337,7 @@
         </constraints>
         <properties>
           <background color="-589836"/>
-          <editable value="false"/>
+          <editable value="true"/>
           <font name="Courier New" size="14"/>
           <foreground color="-16777216"/>
           <selectionColor color="-4473925"/>
@@ -368,58 +360,10 @@
         </constraints>
         <properties>
           <background color="-589836"/>
-          <editable value="false"/>
+          <editable value="true"/>
           <font name="Courier New" size="14"/>
           <foreground color="-16777216"/>
           <selectionColor color="-4473925"/>
-        </properties>
-      </component>
-      <component id="ca0ba" class="javax.swing.JTextField" binding="cuitcuilcomp">
-        <constraints>
-          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="eb03d" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="ID STOCK"/>
-        </properties>
-      </component>
-      <component id="a8e54" class="javax.swing.JTextField" binding="idstock">
-        <constraints>
-          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="f6ef5" class="javax.swing.JButton" binding="ADDButton" default-binding="true">
-        <constraints>
-          <grid row="10" column="3" row-span="2" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-5987935"/>
-          <font name="Square721 BT" size="16" style="0"/>
-          <icon value="Iconos/guardar4040.png"/>
-          <text value="GUARDAR"/>
-        </properties>
-      </component>
-      <component id="3ed37" class="javax.swing.JButton" binding="ELIMINARButton" default-binding="true">
-        <constraints>
-          <grid row="12" column="3" row-span="2" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-6010311"/>
-          <font name="Square721 BT" size="16" style="0"/>
-          <icon value="Iconos/eliminar4040.png"/>
-          <text value="ELIMINAR"/>
         </properties>
       </component>
       <component id="d2853" class="javax.swing.JLabel">
@@ -433,27 +377,44 @@
           <text value="PRODUCTO"/>
         </properties>
       </component>
-      <component id="c9a56" class="javax.swing.JButton" binding="COMPROBARSTOCKButton" default-binding="true">
+      <component id="51480" class="javax.swing.JComboBox" binding="medioPagoComboBox">
         <constraints>
-          <grid row="7" column="3" row-span="2" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="15" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <icon value="Iconos/buscarstock4040.png"/>
-          <text value="BUSCAR STOCK"/>
+          <model>
+            <item value="Débito"/>
+            <item value="Crédito"/>
+            <item value="Efectivo"/>
+            <item value="Virtual"/>
+          </model>
         </properties>
       </component>
-      <component id="1c27d" class="javax.swing.JButton" binding="COMPROBARButton" default-binding="true">
+      <component id="f6ef5" class="javax.swing.JButton" binding="addButton">
         <constraints>
-          <grid row="3" column="3" row-span="3" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="3" row-span="2" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <icon value="Iconos/buscarcliente4040.png"/>
-          <text value="BUSCAR CLIENTE"/>
+          <background color="-5987935"/>
+          <font name="Square721 BT" size="16" style="0"/>
+          <icon value="Iconos/guardar4040.png"/>
+          <text value="GUARDAR"/>
         </properties>
       </component>
-      <component id="b8be" class="javax.swing.JButton" binding="FACTURARButton" default-binding="true">
+      <component id="3ed37" class="javax.swing.JButton" binding="eliminarButton">
         <constraints>
-          <grid row="14" column="3" row-span="2" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="3" row-span="2" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-6010311"/>
+          <font name="Square721 BT" size="16" style="0"/>
+          <icon value="Iconos/eliminar4040.png"/>
+          <text value="ELIMINAR"/>
+        </properties>
+      </component>
+      <component id="b8be" class="javax.swing.JButton" binding="facturarButton">
+        <constraints>
+          <grid row="6" column="3" row-span="2" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-12666052"/>
@@ -462,18 +423,18 @@
           <text value="FACTURAR"/>
         </properties>
       </component>
-      <component id="c6556" class="javax.swing.JLabel" binding="subtotal">
+      <component id="c6556" class="javax.swing.JLabel">
         <constraints>
-          <grid row="16" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="15" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Courier New" size="14" style="1"/>
           <text value="Subtotal"/>
         </properties>
       </component>
-      <component id="a1c41" class="javax.swing.JLabel" binding="subtotalll">
+      <component id="a1c41" class="javax.swing.JLabel" binding="subTotalLabel">
         <constraints>
-          <grid row="16" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="15" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Courier New" size="14"/>
@@ -482,7 +443,7 @@
       </component>
       <component id="26b35" class="javax.swing.JLabel">
         <constraints>
-          <grid row="17" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="16" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Courier New" size="14" style="1"/>
@@ -491,7 +452,7 @@
       </component>
       <component id="90da8" class="javax.swing.JTextField" binding="descuento">
         <constraints>
-          <grid row="17" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="16" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -504,7 +465,7 @@
       </component>
       <component id="c7ac5" class="javax.swing.JButton" binding="calcularButton" default-binding="true">
         <constraints>
-          <grid row="18" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="17" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-5987935"/>
@@ -513,55 +474,22 @@
           <text value="CALCULAR"/>
         </properties>
       </component>
-      <component id="d4cea" class="javax.swing.JLabel" binding="total">
+      <component id="d4cea" class="javax.swing.JLabel">
         <constraints>
-          <grid row="19" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="18" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Courier New" size="14" style="1"/>
           <text value="Total"/>
         </properties>
       </component>
-      <component id="55623" class="javax.swing.JLabel" binding="totalll">
+      <component id="55623" class="javax.swing.JLabel" binding="totalLabel">
         <constraints>
-          <grid row="19" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="18" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Courier New" size="14"/>
           <text value=""/>
-        </properties>
-      </component>
-      <component id="c97dd" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Roboto Light" size="12" style="1"/>
-          <foreground color="-16776005"/>
-          <text value="USUARIO:"/>
-        </properties>
-      </component>
-      <component id="eca78" class="javax.swing.JLabel" binding="usuario">
-        <constraints>
-          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Roboto Light" size="12" style="1"/>
-          <foreground color="-16776005"/>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="51480" class="javax.swing.JComboBox" binding="boxmediopago">
-        <constraints>
-          <grid row="15" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <model>
-            <item value="Débito"/>
-            <item value="Crédito"/>
-            <item value="Efectivo"/>
-            <item value="Virtual"/>
-          </model>
         </properties>
       </component>
     </children>

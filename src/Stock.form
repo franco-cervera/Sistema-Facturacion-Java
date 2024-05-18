@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="stock">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Stock">
   <grid id="27dc6" binding="panel2" layout-manager="GridLayoutManager" row-count="7" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
@@ -13,7 +13,7 @@
       <font name="Consolas" style="3"/>
       <foreground color="-1709313"/>
       <inheritsPopupMenu value="false"/>
-      <name value="stock"/>
+      <name value="Stock"/>
       <preferredSize width="646" height="735"/>
     </properties>
     <border type="line" title="STOCK" title-justification="4">
@@ -58,7 +58,7 @@
           <text value="Proveedor"/>
         </properties>
       </component>
-      <scrollpane id="301d8" binding="paneton">
+      <scrollpane id="301d8" binding="scrollPane">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -67,7 +67,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="5cac5" class="javax.swing.JTable" binding="tablastock">
+          <component id="5cac5" class="javax.swing.JTable" binding="tablaStock">
             <constraints/>
             <properties>
               <autoCreateRowSorter value="true"/>
@@ -86,7 +86,7 @@
           <text value="Descripción"/>
         </properties>
       </component>
-      <component id="9805b" class="javax.swing.JTextField" binding="nombrestock">
+      <component id="9805b" class="javax.swing.JTextField" binding="nombreField">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -108,7 +108,7 @@
           <text value="Precio"/>
         </properties>
       </component>
-      <component id="5857" class="javax.swing.JTextField" binding="preciostock">
+      <component id="5857" class="javax.swing.JTextField" binding="precioField">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -122,7 +122,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="ef2bb" class="javax.swing.JTextField" binding="cantidadstock">
+      <component id="ef2bb" class="javax.swing.JTextField" binding="cantidadField">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -144,22 +144,7 @@
           <text value="Cantidad"/>
         </properties>
       </component>
-      <component id="813bc" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Courier New" size="14" style="1"/>
-          <text value="Proveedor"/>
-        </properties>
-      </component>
-      <component id="7f34c" class="javax.swing.JComboBox" binding="proveedorBox">
-        <constraints>
-          <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="46ca8" class="javax.swing.JButton" binding="ADDButton" default-binding="true">
+      <component id="46ca8" class="javax.swing.JButton" binding="addButton">
         <constraints>
           <grid row="0" column="3" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -171,7 +156,7 @@
           <text value="GUARDAR"/>
         </properties>
       </component>
-      <component id="db7ca" class="javax.swing.JButton" binding="MODIFICARButton" default-binding="true">
+      <component id="db7ca" class="javax.swing.JButton" binding="modificarButton">
         <constraints>
           <grid row="2" column="3" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="165" height="20"/>
@@ -185,7 +170,7 @@
           <text value="MODIFICAR"/>
         </properties>
       </component>
-      <component id="9f3f5" class="javax.swing.JButton" binding="ELIMINARButton" default-binding="true">
+      <component id="9f3f5" class="javax.swing.JButton" binding="eliminarButton">
         <constraints>
           <grid row="4" column="3" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="12"/>
@@ -206,7 +191,7 @@
           <text value="ID Producto"/>
         </properties>
       </component>
-      <component id="77032" class="javax.swing.JTextField" binding="idstock">
+      <component id="77032" class="javax.swing.JTextField" binding="idField">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
