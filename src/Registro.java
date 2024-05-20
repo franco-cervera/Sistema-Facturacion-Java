@@ -16,31 +16,37 @@ public class Registro {
     private JTextField sector;
     private JButton registrarButton;
     private JButton regresar;
+    private static String registeredUsername;
+    private static String registeredPassword;
 
     public Registro() {
         registrarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nomdb, apedb, legdb, passdb, maildb, sectordb;
-                nomdb = getNombre();
-                apedb = getApellido();
-                legdb = getLegajo();
-                passdb = new String(getPassword());
-                maildb = getCorreo();
-                sectordb = getSector();
+                registeredUsername = getLegajo();
+                registeredPassword = new String(getPassword());
+
+                JOptionPane.showMessageDialog(panelRegistro, "Usuario registrado con éxito.");
 
                 limpiar();
+
+                regresar();
             }
         });
         regresar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Log lg = new Log();
-                lg.setVisible(true);
-                JFrame logFrame = (JFrame) SwingUtilities.getRoot(panelRegistro);
-                logFrame.dispose();
+               regresar();
             }
         });
+    }
+
+    private void regresar(){
+
+        Log lg = new Log();
+        lg.setVisible(true);
+        JFrame logFrame = (JFrame) SwingUtilities.getRoot(panelRegistro);
+        logFrame.dispose();
     }
 
     private void limpiar() {
@@ -108,5 +114,13 @@ public class Registro {
 
     public void setSector(String sector) {
         this.sector.setText(sector);
+    }
+
+    public static String getRegisteredUsername() {
+        return registeredUsername;
+    }
+
+    public static String getRegisteredPassword() {
+        return registeredPassword;
     }
 }

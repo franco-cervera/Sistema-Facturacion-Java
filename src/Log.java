@@ -37,12 +37,18 @@ public class Log {
         String username = usuario.getText();
         String password = new String(passwordField1.getPassword());
 
-        // Aquí se podría implementar la lógica de validación del usuario
-        // Por ahora solo se abre la ventana de proveedores
-        Proveedores proveedores = new Proveedores();
-        proveedores.setVisible(true);
-        JFrame logFrame = (JFrame) SwingUtilities.getRoot(panel1);
-        logFrame.dispose();
+        // Validar usuario y contraseña usando los datos de Registro
+        if (username.equals(Registro.getRegisteredUsername()) && password.equals(Registro.getRegisteredPassword())) {
+            JOptionPane.showMessageDialog(panel1, "Inicio de sesión exitoso.");
+            Proveedores proveedores = new Proveedores();
+            proveedores.setVisible(true);
+            JFrame logFrame = (JFrame) SwingUtilities.getWindowAncestor(panel1);
+            if (logFrame != null) {
+                logFrame.dispose();
+            }
+        } else {
+            JOptionPane.showMessageDialog(panel1, "Usuario o contraseña incorrectos.");
+        }
     }
 
     private void register() {

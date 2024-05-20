@@ -23,7 +23,7 @@
         </constraints>
         <properties>
           <font name="Courier New" size="14" style="1"/>
-          <text value="USUARIO"/>
+          <text value="LEGAJO"/>
         </properties>
       </component>
       <component id="1dba2" class="javax.swing.JTextField" binding="usuario">

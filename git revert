@@ -1,0 +1,80 @@
+[33mcommit f87c372622d8ec7c09353bf3447da25f67987d49[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: a8a6a35 0e7a217
+Author: Franco Cervera <125456008+franco-cervera@users.noreply.github.com>
+Date:   Sat May 18 19:07:21 2024 -0300
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit a8a6a35db61825be610ecd0beba64e54726145c4[m
+Author: Franco Cervera <125456008+franco-cervera@users.noreply.github.com>
+Date:   Sat May 18 19:06:37 2024 -0300
+
+    fix encapsulamientos.
+    fix constructores.
+    fix metodos.
+
+[33mcommit 0e7a217600b6bc53b0c99e19911fd7332aacfae3[m
+Author: Franco Cervera <125456008+franco-cervera@users.noreply.github.com>
+Date:   Thu Jan 4 19:13:50 2024 -0300
+
+    Update README.md
+
+[33mcommit 8623689c19844ec30c8ac1064029cd4262c930ee[m
+Author: Franco Cervera <125456008+franco-cervera@users.noreply.github.com>
+Date:   Thu Jan 4 19:11:32 2024 -0300
+
+    Update README.md
+
+[33mcommit cfa7de39f3ebd4114686bc0392e77cb6a4adcfc4[m
+Author: Franco Cervera <125456008+franco-cervera@users.noreply.github.com>
+Date:   Thu Jan 4 19:10:10 2024 -0300
+
+    Update README.md
+
+[33mcommit ec5c6a4f6b6a17c3a77a391e4d82b429a86b19d3[m
+Author: Franco Cervera <franco.cervera@live.com>
+Date:   Thu Jan 4 18:45:45 2024 -0300
+
+    Integración database.
+
+[33mcommit 268742b52abd49b19b82a7768a1f795ca5ae829d[m
+Author: Franco Cervera <franco.cervera@live.com>
+Date:   Tue Dec 26 21:20:30 2023 -0300
+
+    Correcciónes aritméticas & optimización de carteles de diálogo.
+
+[33mcommit d853def61902385448c599744fa1655142ba74e2[m
+Author: Franco Cervera <franco.cervera@live.com>
+Date:   Thu Aug 10 20:06:01 2023 -0300
+
+    Corrección inserción datos en tablas intermedias(clientesXfacturas, usuarioXfacturas)
+
+[33mcommit dd30e9c6ec3244a01947d0ef9787a1b268cae43a[m
+Author: Franco Cervera <franco.cervera@live.com>
+Date:   Wed Jul 19 20:30:18 2023 -0300
+
+    Correccion insercion datos tablas facturar y detalle_factura
+
+[33mcommit 99bf3aa0e76100a762f018a187eafffc3034e0a6[m
+Author: Franco Cervera <franco.cervera@live.com>
+Date:   Sun Jul 2 15:58:56 2023 -0300
+
+    Correccion UPDATES
+
+[33mcommit c9f3968d9da36aba1795aba1fd0a3457697514a4[m
+Author: Franco Cervera <125456008+franco-cervera@users.noreply.github.com>
+Date:   Thu Jun 29 17:48:18 2023 -0300
+
+    Create README.md
+
+[33mcommit fc2c12adb52bf526cc9699359798cee41071ab0e[m
+Author: Franco Cervera <franco.cervera@live.com>
+Date:   Thu Jun 29 17:43:43 2023 -0300
+
+    Delete mysql-connector commit
+
+[33mcommit b6d5a5aab5f999402b2b3165f31218c5bf1198f2[m
+Author: Franco Cervera <franco.cervera@live.com>
+Date:   Thu Jun 29 17:40:04 2023 -0300
+
+    Initial commit
