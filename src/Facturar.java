@@ -225,6 +225,8 @@ public class Facturar extends Facturar1 {
 
             String subTotal = String.valueOf(facturar1Instance.restarSub());
             subTotalLabel.setText(subTotal);
+            String total = String.valueOf(facturar1Instance.resetTotal());
+            totalLabel.setText(total);
 
             descuento.setText("0");
         } else {
